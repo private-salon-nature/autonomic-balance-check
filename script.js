@@ -133,6 +133,7 @@ const backButton = document.querySelector("#back-button");
 const restartButton = document.querySelector("#restart-button");
 const retakeButton = document.querySelector("#retake-button");
 const typeBadge = document.querySelector("#type-badge");
+const typeResultCard = document.querySelector("#type-result-card");
 const typeSummary = document.querySelector("#type-summary");
 const typeTitle = document.querySelector("#type-title");
 const typeDescription = document.querySelector("#type-description");
@@ -260,6 +261,8 @@ function showResults() {
   const type = typeDetails[typeKey];
 
   progressBar.style.width = "100%";
+  typeResultCard.classList.remove("type-a", "type-b", "type-c", "type-d");
+  typeResultCard.classList.add(`type-${typeKey.toLowerCase()}`);
   typeBadge.textContent = `${type.badge}：${type.name}`;
   typeSummary.textContent = type.description.split("。")[0] + "。";
   typeTitle.textContent = type.name;
