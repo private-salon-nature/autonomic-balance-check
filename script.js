@@ -9,7 +9,7 @@ const answerOptions = [
 const categories = [
   {
     id: "tension",
-    name: "緊張スイッチ度",
+    name: "緊張度",
     shortName: "緊張度",
     color: "#d56a55",
     highText: "身体ががんばりモードに入りやすい状態です。",
@@ -33,7 +33,7 @@ const categories = [
   },
   {
     id: "recovery",
-    name: "回復スイッチ低下度",
+    name: "回復低下度",
     shortName: "回復低下度",
     color: "#217984",
     highText: "休んでも回復しにくい状態です。",
@@ -50,14 +50,14 @@ const categories = [
       "ぼーっとしていても、身体の奥が休まっていない感じがある",
     ],
     levels: [
-      { max: 15, label: "低め", text: "回復スイッチは比較的入りやすい状態です。" },
+      { max: 15, label: "低め", text: "回復しやすい状態は比較的保たれています。" },
       { max: 25, label: "中等度", text: "回復しにくさが出始めています。" },
       { max: 40, label: "高め", text: "休んでも回復しにくい状態になりやすいです。" },
     ],
   },
   {
     id: "activity",
-    name: "元気スイッチ低下度",
+    name: "活動力低下度",
     shortName: "活動力低下度",
     color: "#c49335",
     highText: "日中の活動力が落ちやすい状態です。",
@@ -75,7 +75,7 @@ const categories = [
     ],
     levels: [
       { max: 15, label: "低め", text: "日中の活動力は比較的保たれています。" },
-      { max: 25, label: "中等度", text: "活動のスイッチがやや入りにくくなっています。" },
+      { max: 25, label: "中等度", text: "活動力がやや低下し始めています。" },
       { max: 40, label: "高め", text: "日中のだるさや無気力が出やすい状態です。" },
     ],
   },
