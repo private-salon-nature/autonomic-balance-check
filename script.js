@@ -16,14 +16,14 @@ const categories = [
     questions: [
       "肩や首に力が入りやすい",
       "呼吸が浅いと感じることが多い",
-      "動悸や胸のザワザワを感じることがある",
+      "動悸が起こることがある",
       "些細なことでイライラしやすい",
       "頭の中で考えごとが止まらない",
       "寝る前になっても気が張って落ち着かない",
       "音・光・人の言葉に敏感になりやすい",
       "食いしばりや歯ぎしりがある",
       "急いでいないのに、常に急かされている感じがある",
-      "休んでいても罪悪感が出やすい",
+      "ゆっくりすることに罪悪感を感じる",
     ],
     levels: [
       { max: 15, label: "低め", text: "緊張度は比較的落ち着いています。" },
@@ -43,11 +43,11 @@ const categories = [
       "朝起きても疲れが残っている",
       "胃もたれ・便秘・下痢など胃腸の不調がある",
       "食欲が不安定になりやすい",
-      "深くリラックスできている感覚が少ない",
+      "リラックスできていると感じる時間が少ない",
       "湯船に入っても身体がゆるみにくい",
       "手足が冷えやすい",
       "休んでも疲れが抜けにくい",
-      "ぼーっとしていても、身体の奥が休まっていない感じがある",
+      "ぼーっとしていても、身体が休まっていない感じがある",
     ],
     levels: [
       { max: 15, label: "低め", text: "回復しやすい状態は比較的保たれています。" },
@@ -67,11 +67,11 @@ const categories = [
       "集中力が続きにくい",
       "外出や人と会うのが億劫に感じる",
       "少し動いただけで疲れやすい",
-      "日中に眠気が強い",
+      "日中に眠気を強く感じる",
       "気分が沈みやすい",
       "以前より行動量が減っている",
       "頭がぼんやりしやすい",
-      "何かを始めるまでに強いエネルギーが必要",
+      "何かを始めるのに腰が重く感じる",
     ],
     levels: [
       { max: 15, label: "低め", text: "日中の活動力は比較的保たれています。" },
@@ -85,26 +85,65 @@ const typeDetails = {
   A: {
     name: "すこやかバランスタイプ",
     badge: "A",
-    description:
-      "あなたは、現在のところ心身のバランスが比較的整っているタイプです。活動するときは動けて、休むときは休める状態が保たれています。今は大きな不調が出にくい状態ですが、疲れやストレスは少しずつ蓄積します。今の良い状態を保つためにも、睡眠・食事・軽い運動・定期的な身体のケアを大切にしていきましょう。",
+    summary: "心身のバランスが比較的整っているタイプです。",
+    state:
+      "活動するときは動けて、休むときは休める状態が保たれています。今の良い状態を保つために、睡眠・食事・軽い運動・定期的な身体のケアを無理なく続けていきましょう。",
+    symptoms: [
+      "大きな乱れは少なめ",
+      "忙しさが続くと疲労が少しずつたまりやすい",
+      "ストレスが続くと緊張やだるさが出ることがある",
+    ],
   },
   B: {
     name: "がんばりすぎ緊張タイプ",
     badge: "B",
-    description:
-      "あなたは、身体ががんばりモードに入りやすいタイプです。首・肩・背中に力が入りやすく、呼吸が浅くなったり、頭の中で考えごとが止まりにくくなったりする傾向があります。まだ大きく回復力が落ちきっていない場合でも、この状態が続くと、寝ても疲れが抜けにくくなることがあります。まずは身体の緊張をゆるめ、呼吸が深く入りやすい状態に整えることが大切です。",
+    summary: "身体ががんばりモードに入りやすいタイプです。",
+    state:
+      "首・肩・背中に力が入りやすく、呼吸が浅くなったり、頭の中で考えごとが止まりにくくなったりする傾向があります。まずは肩の力を抜く、息をゆっくり吐く、短い休憩をはさむなど、身体の緊張をこまめにゆるめることが大切です。",
+    symptoms: [
+      "肩こり・首こり",
+      "頭痛",
+      "食いしばり",
+      "呼吸の浅さ",
+      "イライラ",
+      "動悸",
+      "寝る前の考えごと",
+    ],
   },
   C: {
     name: "休んでも回復しにくいタイプ",
     badge: "C",
-    description:
-      "あなたは、休んでいるつもりでも身体の回復スイッチが入りにくいタイプです。寝ても疲れが取れない、眠りが浅い、胃腸の調子が乱れやすい、手足が冷えやすいなど、回復不足のサインが出やすい傾向があります。無理に頑張るよりも、まずは身体が安心して休める状態をつくることが大切です。睡眠・胃腸・呼吸・血流が整いやすいように、やさしく身体をゆるめていきましょう。",
+    summary: "休んでいるつもりでも身体の回復が追いつきにくいタイプです。",
+    state:
+      "強い緊張よりも、疲れの抜けにくさや睡眠の質の低下が出やすい状態です。無理に頑張るより、寝る前の刺激を減らす、湯船で身体を温める、深く息を吐く時間をつくるなど、身体が安心して休める土台を整えていきましょう。",
+    symptoms: [
+      "寝ても疲れが取れない",
+      "朝起きてもだるい",
+      "眠りが浅い",
+      "胃腸の不調",
+      "手足の冷え",
+      "食欲の乱れ",
+      "休んでもスッキリしない",
+    ],
   },
   D: {
     name: "ぐったり消耗タイプ",
     badge: "D",
-    description:
-      "あなたは、身体ががんばりモードに入りやすく、同時に回復スイッチも入りにくいタイプです。疲れているのに力が抜けない、休みたいのに休まらない、寝ても疲れが抜けにくいなど、心身の消耗が重なりやすい状態です。このタイプは、肩こり・首こり・不眠・胃腸の不調・動悸・めまい・気分の落ち込みなど、複数の不調が出やすくなります。今は、さらに頑張ることよりも、身体の緊張をやさしくゆるめ、安心して休める状態を取り戻すことが大切です。",
+    summary: "緊張と回復しにくさが重なり、消耗が出やすいタイプです。",
+    state:
+      "疲れているのに力が抜けない、休みたいのに休まらない、寝ても疲れが抜けにくいなど、心身の消耗が重なりやすい状態です。今はさらに頑張ることより、予定を詰め込みすぎない、呼吸をゆっくり整える、身体を温めるなど、刺激を減らして安心して休める時間を優先しましょう。",
+    symptoms: [
+      "慢性的な疲労感",
+      "肩こり・首こり",
+      "頭痛",
+      "食いしばり",
+      "不眠・眠りの浅さ",
+      "胃腸の不調",
+      "動悸",
+      "めまい",
+      "気分の落ち込み",
+      "集中力低下",
+    ],
   },
 };
 
@@ -136,7 +175,8 @@ const typeBadge = document.querySelector("#type-badge");
 const typeResultCard = document.querySelector("#type-result-card");
 const typeSummary = document.querySelector("#type-summary");
 const typeTitle = document.querySelector("#type-title");
-const typeDescription = document.querySelector("#type-description");
+const typeState = document.querySelector("#type-state");
+const typeSymptoms = document.querySelector("#type-symptoms");
 const activityNote = document.querySelector("#activity-note");
 const scoreList = document.querySelector("#score-list");
 const mapDot = document.querySelector("#map-dot");
@@ -278,9 +318,15 @@ function showResults() {
   typeResultCard.classList.remove("type-a", "type-b", "type-c", "type-d");
   typeResultCard.classList.add(`type-${typeKey.toLowerCase()}`);
   typeBadge.textContent = `${type.badge}：${type.name}`;
-  typeSummary.textContent = type.description.split("。")[0] + "。";
+  typeSummary.textContent = type.summary;
   typeTitle.textContent = type.name;
-  typeDescription.textContent = type.description;
+  typeState.textContent = type.state;
+  typeSymptoms.innerHTML = "";
+  type.symptoms.forEach((symptom) => {
+    const item = document.createElement("li");
+    item.textContent = symptom;
+    typeSymptoms.appendChild(item);
+  });
   activityNote.textContent = getActivitySupplement(scores.activity);
 
   renderScores(scores);

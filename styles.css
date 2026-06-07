@@ -88,6 +88,17 @@ button {
   line-height: 1.8;
 }
 
+.cover-tip {
+  max-width: 660px;
+  margin: 18px 0 0;
+  border-left: 4px solid var(--forest);
+  background: #f7ffe6;
+  color: var(--leaf-dark);
+  padding: 12px 14px;
+  font-weight: 800;
+  line-height: 1.75;
+}
+
 .start-button {
   width: min(100%, 280px);
   min-height: 58px;
@@ -525,15 +536,50 @@ h2 {
   margin-top: 18px;
 }
 
-#type-description,
+.explanation-block p,
 .activity-note,
 .notice-panel {
   color: var(--muted);
   line-height: 1.85;
 }
 
-#type-description {
+.explanation-block {
   margin: 0;
+}
+
+.explanation-block + .explanation-block {
+  margin-top: 18px;
+}
+
+.explanation-block h3 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 1.05rem;
+  letter-spacing: 0;
+}
+
+.explanation-block p {
+  margin: 0;
+}
+
+.symptom-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.symptom-list li {
+  border: 1px solid rgba(127, 178, 59, 0.32);
+  border-radius: 999px;
+  background: #f7ffe6;
+  color: var(--leaf-dark);
+  padding: 7px 11px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.4;
 }
 
 .activity-note {

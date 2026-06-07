@@ -17,6 +17,9 @@
               直近2週間から1ヶ月の心身の状態を、30問のアンケートで確認します。
               1問ずつ、今の感覚に近いものをタップしてください。
             </p>
+            <p class="cover-tip">
+              難しく考えず、正解を探そうとしなくて大丈夫です。直感的に「今の自分に一番近い」と感じるものを選んでください。
+            </p>
             <button id="start-button" class="primary-button start-button" type="button">チェックを始める</button>
           </div>
 
@@ -120,7 +123,14 @@
             <p class="eyebrow">タイプ解説</p>
             <h2 id="type-title"></h2>
           </div>
-          <p id="type-description"></p>
+          <div class="explanation-block">
+            <h3>現在の状態</h3>
+            <p id="type-state"></p>
+          </div>
+          <div class="explanation-block">
+            <h3>出やすい症状</h3>
+            <ul id="type-symptoms" class="symptom-list"></ul>
+          </div>
           <div id="activity-note" class="activity-note"></div>
         </section>
 
