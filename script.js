@@ -87,7 +87,9 @@ const typeDetails = {
     badge: "A",
     summary: "心身のバランスが比較的整っているタイプです。",
     state:
-      "活動するときは動けて、休むときは休める状態が保たれています。今の良い状態を保つために、睡眠・食事・軽い運動・定期的な身体のケアを無理なく続けていきましょう。",
+      "活動するときは動けて、休むときは休める状態が保たれています。今は大きな不調が出にくい状態ですが、疲れやストレスは少しずつ蓄積することがあります。",
+    selfCare:
+      "今の良い状態を保つために、睡眠・食事・軽い運動・定期的な身体のケアを無理なく続けていきましょう。",
     symptoms: [
       "大きな乱れは少なめ",
       "忙しさが続くと疲労が少しずつたまりやすい",
@@ -99,7 +101,9 @@ const typeDetails = {
     badge: "B",
     summary: "身体ががんばりモードに入りやすいタイプです。",
     state:
-      "首・肩・背中に力が入りやすく、呼吸が浅くなったり、頭の中で考えごとが止まりにくくなったりする傾向があります。まずは肩の力を抜く、息をゆっくり吐く、短い休憩をはさむなど、身体の緊張をこまめにゆるめることが大切です。",
+      "首・肩・背中に力が入りやすく、呼吸が浅くなったり、頭の中で考えごとが止まりにくくなったりする傾向があります。まだ回復力が大きく落ちきっていない場合でも、この状態が続くと疲れが抜けにくくなることがあります。",
+    selfCare:
+      "まずは肩の力を抜く、息をゆっくり吐く、短い休憩をはさむなど、身体の緊張をこまめにゆるめることが大切です。",
     symptoms: [
       "肩こり・首こり",
       "頭痛",
@@ -115,7 +119,9 @@ const typeDetails = {
     badge: "C",
     summary: "休んでいるつもりでも身体の回復が追いつきにくいタイプです。",
     state:
-      "強い緊張よりも、疲れの抜けにくさや睡眠の質の低下が出やすい状態です。無理に頑張るより、寝る前の刺激を減らす、湯船で身体を温める、深く息を吐く時間をつくるなど、身体が安心して休める土台を整えていきましょう。",
+      "強い緊張よりも、疲れの抜けにくさや睡眠の質の低下が出やすい状態です。寝ている、休んでいるつもりでも、身体の回復が追いつきにくい傾向があります。",
+    selfCare:
+      "無理に頑張るより、寝る前の刺激を減らす、湯船で身体を温める、深く息を吐く時間をつくるなど、身体が安心して休める土台を整えていきましょう。",
     symptoms: [
       "寝ても疲れが取れない",
       "朝起きてもだるい",
@@ -131,7 +137,9 @@ const typeDetails = {
     badge: "D",
     summary: "緊張と回復しにくさが重なり、消耗が出やすいタイプです。",
     state:
-      "疲れているのに力が抜けない、休みたいのに休まらない、寝ても疲れが抜けにくいなど、心身の消耗が重なりやすい状態です。今はさらに頑張ることより、予定を詰め込みすぎない、呼吸をゆっくり整える、身体を温めるなど、刺激を減らして安心して休める時間を優先しましょう。",
+      "疲れているのに力が抜けない、休みたいのに休まらない、寝ても疲れが抜けにくいなど、心身の消耗が重なりやすい状態です。緊張と回復しにくさが重なり、複数の不調が出やすくなります。",
+    selfCare:
+      "今はさらに頑張ることより、予定を詰め込みすぎない、呼吸をゆっくり整える、身体を温めるなど、刺激を減らして安心して休める時間を優先しましょう。",
     symptoms: [
       "慢性的な疲労感",
       "肩こり・首こり",
@@ -177,10 +185,9 @@ const typeSummary = document.querySelector("#type-summary");
 const typeTitle = document.querySelector("#type-title");
 const typeState = document.querySelector("#type-state");
 const typeSymptoms = document.querySelector("#type-symptoms");
+const typeSelfCare = document.querySelector("#type-self-care");
 const activityNote = document.querySelector("#activity-note");
 const scoreList = document.querySelector("#score-list");
-const mapDot = document.querySelector("#map-dot");
-const mapCaption = document.querySelector("#map-caption");
 
 totalNumber.textContent = questions.length;
 
@@ -301,14 +308,6 @@ function renderScores(scores) {
   });
 }
 
-function renderMap(scores, type) {
-  const left = Math.max(7, Math.min(93, (scores.tension / 40) * 100));
-  const top = Math.max(7, Math.min(93, 100 - (scores.recovery / 40) * 100));
-  mapDot.style.left = `${left}%`;
-  mapDot.style.top = `${top}%`;
-  mapCaption.textContent = `${type.name}です。横方向は緊張度、縦方向は回復低下度を表しています。`;
-}
-
 function showResults() {
   const scores = calculateScores();
   const typeKey = judgeType(scores);
@@ -321,6 +320,7 @@ function showResults() {
   typeSummary.textContent = type.summary;
   typeTitle.textContent = type.name;
   typeState.textContent = type.state;
+  typeSelfCare.textContent = type.selfCare;
   typeSymptoms.innerHTML = "";
   type.symptoms.forEach((symptom) => {
     const item = document.createElement("li");
@@ -330,7 +330,6 @@ function showResults() {
   activityNote.textContent = getActivitySupplement(scores.activity);
 
   renderScores(scores);
-  renderMap(scores, type);
 
   coverScreen.classList.remove("active");
   quizScreen.classList.remove("active");

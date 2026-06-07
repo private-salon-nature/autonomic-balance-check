@@ -257,7 +257,6 @@ h2 {
 }
 
 .question-panel,
-.balance-map,
 .score-card,
 .explanation-panel,
 .notice-panel {
@@ -410,14 +409,6 @@ h2 {
   box-shadow: 0 10px 26px rgba(127, 178, 59, 0.28);
 }
 
-.result-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 18px;
-  align-items: stretch;
-}
-
-.balance-map,
 .score-card,
 .explanation-panel,
 .notice-panel {
@@ -426,67 +417,6 @@ h2 {
 
 .section-heading {
   margin-bottom: 16px;
-}
-
-.quadrant-chart {
-  position: relative;
-  aspect-ratio: 1;
-  min-height: 280px;
-  border-radius: 8px;
-  border: 1px solid var(--line);
-  background:
-    linear-gradient(90deg, transparent calc(50% - 1px), rgba(38, 50, 56, 0.22) 50%, transparent calc(50% + 1px)),
-    linear-gradient(0deg, transparent calc(50% - 1px), rgba(38, 50, 56, 0.22) 50%, transparent calc(50% + 1px)),
-    linear-gradient(135deg, rgba(216, 239, 157, 0.32), rgba(255, 250, 219, 0.24) 50%, rgba(213, 106, 85, 0.14));
-  overflow: hidden;
-}
-
-.axis-label {
-  position: absolute;
-  color: rgba(38, 50, 56, 0.7);
-  font-size: 0.78rem;
-  font-weight: 800;
-}
-
-.axis-top {
-  top: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.axis-bottom {
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.axis-left {
-  top: 50%;
-  left: 8px;
-  transform: translateY(-50%);
-}
-
-.axis-right {
-  top: 50%;
-  right: 8px;
-  transform: translateY(-50%);
-}
-
-.map-dot {
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  border: 4px solid #ffffff;
-  border-radius: 50%;
-  background: var(--coral);
-  box-shadow: 0 8px 20px rgba(38, 50, 56, 0.3);
-  transform: translate(-50%, -50%);
-}
-
-.map-caption {
-  margin: 14px 0 0;
-  color: var(--muted);
-  line-height: 1.7;
 }
 
 .score-list {
@@ -582,6 +512,16 @@ h2 {
   line-height: 1.4;
 }
 
+.self-care-block {
+  border-left: 4px solid var(--forest);
+  padding: 12px 14px;
+  background: #f7ffe6;
+}
+
+.self-care-block p {
+  color: var(--leaf-dark);
+}
+
 .activity-note {
   margin-top: 16px;
   border-left: 4px solid var(--forest);
@@ -640,13 +580,6 @@ h2 {
     text-align: left;
   }
 
-  .result-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .quadrant-chart {
-    min-height: 250px;
-  }
 }
 
 @media (max-width: 480px) {
