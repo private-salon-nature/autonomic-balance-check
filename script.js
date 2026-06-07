@@ -11,7 +11,7 @@ const categories = [
     id: "tension",
     name: "緊張度",
     shortName: "緊張度",
-    color: "#d56a55",
+    color: "#a9cf4d",
     highText: "身体ががんばりモードに入りやすい状態です。",
     questions: [
       "肩や首に力が入りやすい",
@@ -35,7 +35,7 @@ const categories = [
     id: "recovery",
     name: "回復低下度",
     shortName: "回復低下度",
-    color: "#217984",
+    color: "#7fb23b",
     highText: "休んでも回復しにくい状態です。",
     questions: [
       "寝つきが悪い",
@@ -59,7 +59,7 @@ const categories = [
     id: "activity",
     name: "活動力低下度",
     shortName: "活動力低下度",
-    color: "#c49335",
+    color: "#c9d85f",
     highText: "日中の活動力が落ちやすい状態です。",
     questions: [
       "朝から身体が重い",
