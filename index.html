@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自律神経バランスチェック</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="quiz-screen" class="screen active" aria-labelledby="app-title">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">セルフチェック</p>
+            <h1 id="app-title">自律神経バランスチェック</h1>
+          </div>
+          <div class="count-pill" aria-live="polite">
+            <span id="current-number">1</span>/<span id="total-number">30</span>
+          </div>
+        </header>
+
+        <div class="progress-track" aria-hidden="true">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+
+        <section class="question-panel" aria-live="polite">
+          <div class="category-row">
+            <span id="category-label" class="category-label"></span>
+            <span id="level-hint" class="level-hint">直近2週間から1ヶ月</span>
+          </div>
+          <h2 id="question-text"></h2>
+          <div id="answer-options" class="answer-options"></div>
+        </section>
+
+        <footer class="quiz-actions">
+          <button id="back-button" class="ghost-button" type="button">戻る</button>
+          <button id="restart-button" class="ghost-button" type="button">最初から</button>
+        </footer>
+      </section>
+
+      <section id="result-screen" class="screen" aria-labelledby="result-title">
+        <header class="result-hero">
+          <p class="eyebrow">チェック結果</p>
+          <h1 id="result-title">あなたの自律神経バランス</h1>
+          <div id="type-badge" class="type-badge"></div>
+        </header>
+
+        <section class="result-grid">
+          <article class="balance-map" aria-labelledby="map-title">
+            <div class="section-heading">
+              <p class="eyebrow">バランスマップ</p>
+              <h2 id="map-title">現在の位置</h2>
+            </div>
+            <div class="quadrant-chart" aria-hidden="true">
+              <span class="axis-label axis-top">回復低下 高</span>
+              <span class="axis-label axis-bottom">回復低下 低</span>
+              <span class="axis-label axis-left">緊張 低</span>
+              <span class="axis-label axis-right">緊張 高</span>
+              <div id="map-dot" class="map-dot"></div>
+            </div>
+            <p id="map-caption" class="map-caption"></p>
+          </article>
+
+          <article class="score-card" aria-labelledby="score-title">
+            <div class="section-heading">
+              <p class="eyebrow">スコア</p>
+              <h2 id="score-title">3つのスイッチ</h2>
+            </div>
+            <div id="score-list" class="score-list"></div>
+          </article>
+        </section>
+
+        <section class="explanation-panel">
+          <div class="section-heading">
+            <p class="eyebrow">タイプ解説</p>
+            <h2 id="type-title"></h2>
+          </div>
+          <p id="type-description"></p>
+          <div id="activity-note" class="activity-note"></div>
+        </section>
+
+        <section class="notice-panel">
+          <p>
+            このチェックは、現在の心身の傾向を把握するためのものであり、医療的な診断を行うものではありません。
+          </p>
+          <p>
+            強い動悸、胸痛、息苦しさ、失神、急な麻痺、激しい頭痛、長引く不眠、強い気分の落ち込みなどがある場合は、医療機関への相談をおすすめします。
+          </p>
+        </section>
+
+        <footer class="result-actions">
+          <button id="retake-button" class="primary-button" type="button">もう一度チェックする</button>
+        </footer>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
