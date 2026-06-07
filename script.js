@@ -152,7 +152,13 @@ function getLevel(category, score) {
   return category.levels.find((level) => score <= level.max);
 }
 
-function renderQuestion() {
+function scrollToQuestionStart() {
+  requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  });
+}
+
+function renderQuestion({ resetScroll = false } = {}) {
   const question = questions[currentIndex];
   const category = getCategory(question.categoryId);
   const progress = (currentIndex / questions.length) * 100;
@@ -179,14 +185,22 @@ function renderQuestion() {
     button.addEventListener("click", () => selectAnswer(option.score));
     answerOptionsNode.appendChild(button);
   });
+
+  if (resetScroll) {
+    scrollToQuestionStart();
+  }
 }
 
 function selectAnswer(score) {
+  if (document.activeElement instanceof HTMLElement) {
+    document.activeElement.blur();
+  }
+
   answers[currentIndex] = score;
 
   if (currentIndex < questions.length - 1) {
     currentIndex += 1;
-    renderQuestion();
+    renderQuestion({ resetScroll: true });
     return;
   }
 
@@ -293,7 +307,7 @@ startButton.addEventListener("click", restart);
 backButton.addEventListener("click", () => {
   if (currentIndex === 0) return;
   currentIndex -= 1;
-  renderQuestion();
+  renderQuestion({ resetScroll: true });
 });
 
 restartButton.addEventListener("click", restart);
