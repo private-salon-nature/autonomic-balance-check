@@ -8,7 +8,45 @@
   </head>
   <body>
     <main class="app-shell">
-      <section id="quiz-screen" class="screen active" aria-labelledby="app-title">
+      <section id="cover-screen" class="screen active" aria-labelledby="cover-title">
+        <section class="cover-panel">
+          <div class="cover-copy">
+            <p class="eyebrow">セルフチェック</p>
+            <h1 id="cover-title">自律神経の状態をチェックする</h1>
+            <p class="cover-lead">
+              直近2週間から1ヶ月の心身の状態を、30問のアンケートで確認します。
+              1問ずつ、今の感覚に近いものをタップしてください。
+            </p>
+            <button id="start-button" class="primary-button start-button" type="button">チェックを始める</button>
+          </div>
+
+          <aside class="cover-summary" aria-label="チェック内容">
+            <div class="summary-item">
+              <span class="summary-number">30</span>
+              <span class="summary-label">質問</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-number">4</span>
+              <span class="summary-label">タイプ分類</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-number">3</span>
+              <span class="summary-label">スコア表示</span>
+            </div>
+          </aside>
+        </section>
+
+        <section class="notice-panel cover-notice">
+          <p>
+            このチェックは、現在の心身の傾向を把握するためのものであり、医療的な診断を行うものではありません。
+          </p>
+          <p>
+            強い動悸、胸痛、息苦しさ、失神、急な麻痺、激しい頭痛、長引く不眠、強い気分の落ち込みなどがある場合は、医療機関への相談をおすすめします。
+          </p>
+        </section>
+      </section>
+
+      <section id="quiz-screen" class="screen" aria-labelledby="app-title">
         <header class="topbar">
           <div>
             <p class="eyebrow">セルフチェック</p>
@@ -40,10 +78,17 @@
 
       <section id="result-screen" class="screen" aria-labelledby="result-title">
         <header class="result-hero">
-          <p class="eyebrow">チェック結果</p>
-          <h1 id="result-title">あなたの自律神経バランス</h1>
-          <div id="type-badge" class="type-badge"></div>
+          <div>
+            <p class="eyebrow">チェック結果</p>
+            <h1 id="result-title">あなたの自律神経バランス</h1>
+          </div>
         </header>
+
+        <section id="type-result-card" class="type-result-card" aria-label="タイプ結果">
+          <p class="result-label">あなたのタイプ</p>
+          <div id="type-badge" class="type-badge"></div>
+          <p id="type-summary" class="type-summary"></p>
+        </section>
 
         <section class="result-grid">
           <article class="balance-map" aria-labelledby="map-title">

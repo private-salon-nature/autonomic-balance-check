@@ -119,8 +119,10 @@ const questions = categories.flatMap((category) =>
 let currentIndex = 0;
 let answers = Array(questions.length).fill(null);
 
+const coverScreen = document.querySelector("#cover-screen");
 const quizScreen = document.querySelector("#quiz-screen");
 const resultScreen = document.querySelector("#result-screen");
+const startButton = document.querySelector("#start-button");
 const currentNumber = document.querySelector("#current-number");
 const totalNumber = document.querySelector("#total-number");
 const progressBar = document.querySelector("#progress-bar");
@@ -131,6 +133,7 @@ const backButton = document.querySelector("#back-button");
 const restartButton = document.querySelector("#restart-button");
 const retakeButton = document.querySelector("#retake-button");
 const typeBadge = document.querySelector("#type-badge");
+const typeSummary = document.querySelector("#type-summary");
 const typeTitle = document.querySelector("#type-title");
 const typeDescription = document.querySelector("#type-description");
 const activityNote = document.querySelector("#activity-note");
@@ -258,6 +261,7 @@ function showResults() {
 
   progressBar.style.width = "100%";
   typeBadge.textContent = `${type.badge}：${type.name}`;
+  typeSummary.textContent = type.description.split("。")[0] + "。";
   typeTitle.textContent = type.name;
   typeDescription.textContent = type.description;
   activityNote.textContent = getActivitySupplement(scores.activity);
@@ -265,6 +269,7 @@ function showResults() {
   renderScores(scores);
   renderMap(scores, type);
 
+  coverScreen.classList.remove("active");
   quizScreen.classList.remove("active");
   resultScreen.classList.add("active");
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -273,11 +278,14 @@ function showResults() {
 function restart() {
   currentIndex = 0;
   answers = Array(questions.length).fill(null);
+  coverScreen.classList.remove("active");
   resultScreen.classList.remove("active");
   quizScreen.classList.add("active");
   renderQuestion();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
+
+startButton.addEventListener("click", restart);
 
 backButton.addEventListener("click", () => {
   if (currentIndex === 0) return;
