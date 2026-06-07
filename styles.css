@@ -259,6 +259,7 @@ h2 {
 .question-panel,
 .score-card,
 .explanation-panel,
+.self-care-panel,
 .notice-panel {
   border: 1px solid rgba(222, 216, 206, 0.9);
   border-radius: 8px;
@@ -411,6 +412,7 @@ h2 {
 
 .score-card,
 .explanation-panel,
+.self-care-panel,
 .notice-panel {
   padding: clamp(18px, 3vw, 30px);
 }
@@ -462,11 +464,13 @@ h2 {
   line-height: 1.5;
 }
 
-.explanation-panel {
+.explanation-panel,
+.self-care-panel {
   margin-top: 18px;
 }
 
 .explanation-block p,
+.self-care-text,
 .activity-note,
 .notice-panel {
   color: var(--muted);
@@ -512,14 +516,8 @@ h2 {
   line-height: 1.4;
 }
 
-.self-care-block {
-  border-left: 4px solid var(--forest);
-  padding: 12px 14px;
-  background: #f7ffe6;
-}
-
-.self-care-block p {
-  color: var(--leaf-dark);
+.self-care-text {
+  margin: 0;
 }
 
 .activity-note {
@@ -527,6 +525,72 @@ h2 {
   border-left: 4px solid var(--forest);
   padding: 12px 14px;
   background: #f7ffe6;
+}
+
+.activity-note,
+.activity-note p {
+  color: var(--leaf-dark);
+}
+
+.trial-offer {
+  margin-top: 18px;
+  border: 1px solid rgba(127, 178, 59, 0.38);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f7ffe6, #fffdf8);
+  padding: clamp(16px, 3vw, 24px);
+}
+
+.trial-offer p,
+.trial-offer h3 {
+  margin: 0;
+}
+
+.offer-label {
+  display: inline-flex;
+  border-radius: 999px;
+  background: var(--leaf-soft);
+  color: var(--leaf-dark);
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.trial-offer h3 {
+  margin-top: 12px;
+  color: var(--ink);
+  font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+  line-height: 1.35;
+}
+
+.trial-offer p:not(.offer-label) {
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.trial-offer strong {
+  color: var(--leaf-dark);
+}
+
+.line-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  margin-top: 18px;
+  border-radius: 999px;
+  background: #06c755;
+  color: #ffffff;
+  padding: 0 24px;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(6, 199, 85, 0.24);
+}
+
+.line-button:hover,
+.line-button:focus-visible {
+  background: #05b64d;
+  outline: none;
 }
 
 .notice-panel {
@@ -596,7 +660,8 @@ h2 {
   .category-label,
   .level-hint,
   .ghost-button,
-  .primary-button {
+  .primary-button,
+  .line-button {
     justify-content: center;
     width: 100%;
   }
