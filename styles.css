@@ -276,11 +276,10 @@ h2 {
 .result-actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 12px;
 }
 
-.category-label,
 .level-hint {
   display: inline-flex;
   align-items: center;
@@ -289,11 +288,6 @@ h2 {
   padding: 7px 12px;
   font-size: 0.9rem;
   font-weight: 800;
-}
-
-.category-label {
-  color: var(--leaf-dark);
-  background: var(--leaf-soft);
 }
 
 .level-hint {
@@ -644,7 +638,6 @@ h2 {
     grid-template-columns: 1fr;
   }
 
-  .category-label,
   .level-hint,
   .ghost-button,
   .primary-button,

@@ -153,7 +153,6 @@ const startButton = document.querySelector("#start-button");
 const currentNumber = document.querySelector("#current-number");
 const totalNumber = document.querySelector("#total-number");
 const progressBar = document.querySelector("#progress-bar");
-const categoryLabel = document.querySelector("#category-label");
 const questionText = document.querySelector("#question-text");
 const answerOptionsNode = document.querySelector("#answer-options");
 const backButton = document.querySelector("#back-button");
@@ -191,8 +190,6 @@ function renderQuestion({ resetScroll = false } = {}) {
 
   currentNumber.textContent = currentIndex + 1;
   progressBar.style.width = `${progress}%`;
-  categoryLabel.textContent = category.name;
-  categoryLabel.style.background = category.color;
   questionText.textContent = question.text;
   backButton.disabled = currentIndex === 0;
 
