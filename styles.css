@@ -471,7 +471,6 @@ h2 {
 
 .explanation-block p,
 .self-care-text,
-.activity-note,
 .notice-panel {
   color: var(--muted);
   line-height: 1.85;
@@ -518,18 +517,6 @@ h2 {
 
 .self-care-text {
   margin: 0;
-}
-
-.activity-note {
-  margin-top: 16px;
-  border-left: 4px solid var(--forest);
-  padding: 12px 14px;
-  background: #f7ffe6;
-}
-
-.activity-note,
-.activity-note p {
-  color: var(--leaf-dark);
 }
 
 .trial-offer {
