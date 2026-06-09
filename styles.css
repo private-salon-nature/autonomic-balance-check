@@ -122,17 +122,18 @@ button {
   padding: 16px;
 }
 
-.summary-number {
+.summary-text {
   color: var(--leaf-dark);
-  font-size: 2.4rem;
+  font-size: 1.15rem;
   font-weight: 900;
-  line-height: 1;
+  line-height: 1.35;
+  text-align: center;
 }
 
-.summary-label {
-  margin-top: 8px;
-  color: var(--muted);
-  font-weight: 800;
+.summary-text span {
+  font-size: 2.3rem;
+  line-height: 1;
+  vertical-align: -0.08em;
 }
 
 .cover-notice {
