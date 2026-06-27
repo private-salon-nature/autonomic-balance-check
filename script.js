@@ -291,7 +291,7 @@ function showResults() {
   progressBar.style.width = "100%";
   typeResultCard.classList.remove("type-a", "type-b", "type-c", "type-d");
   typeResultCard.classList.add(`type-${typeKey.toLowerCase()}`);
-  typeBadge.textContent = `${type.badge}：${type.name}`;
+  typeBadge.textContent = "";
   typeSummary.textContent = type.summary;
   typeIllustration.src = type.image;
   typeIllustration.alt = type.imageAlt;
