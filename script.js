@@ -61,6 +61,8 @@ const typeDetails = {
   A: {
     name: "いきいきタイプ",
     badge: "A",
+    image: "assets/type-a-ikiiki.png",
+    imageAlt: "いきいきタイプの女性イラスト",
     summary: "活動と休息の切り替えが比較的スムーズなタイプです。",
     state:
       "交感神経・副交感神経ともに良好なタイプです。活動するときは動けて、休むときは休める状態が比較的保たれています。現在は、自律神経の大きな偏りは少なめと考えられます。",
@@ -75,6 +77,8 @@ const typeDetails = {
   B: {
     name: "頑張りすぎタイプ",
     badge: "B",
+    image: "assets/type-b-ganbari.png",
+    imageAlt: "頑張りすぎタイプの女性イラスト",
     summary: "身体ががんばりモードに入りやすいタイプです。",
     state:
       "副交感神経の働きは良好ですが、交感神経の働きが過剰なタイプです。仕事や家事はこなせても、首・肩・背中・頭の中に力が入りやすく、休むときにも緊張が抜けにくい傾向があります。",
@@ -94,6 +98,8 @@ const typeDetails = {
   C: {
     name: "ぼんやりタイプ",
     badge: "C",
+    image: "assets/type-c-bonyari.png",
+    imageAlt: "ぼんやりタイプの女性イラスト",
     summary: "休息モードに傾きやすく、活動スイッチが入りにくいタイプです。",
     state:
       "交感神経の働きは良好ですが、副交感神経の働きが過剰なタイプです。強い緊張は目立ちにくい一方で、朝からだるい、日中眠い、頭がぼんやりする、やる気が出にくいといった傾向が出やすくなります。",
@@ -113,6 +119,8 @@ const typeDetails = {
   D: {
     name: "ぐったりタイプ",
     badge: "D",
+    image: "assets/type-d-guttari.png",
+    imageAlt: "ぐったりタイプの女性イラスト",
     summary: "緊張と消耗が重なり、切り替えがしにくいタイプです。",
     state:
       "交感神経・副交感神経ともにバランスが乱れているタイプです。身体ががんばりモードに入りやすい一方で、日中はだるさやぼんやり感も出やすい状態です。活動も休息もスムーズに切り替わりにくくなっている可能性があります。",
@@ -161,6 +169,7 @@ const retakeButton = document.querySelector("#retake-button");
 const typeBadge = document.querySelector("#type-badge");
 const typeResultCard = document.querySelector("#type-result-card");
 const typeSummary = document.querySelector("#type-summary");
+const typeIllustration = document.querySelector("#type-illustration");
 const typeTitle = document.querySelector("#type-title");
 const typeState = document.querySelector("#type-state");
 const typeSymptoms = document.querySelector("#type-symptoms");
@@ -284,6 +293,8 @@ function showResults() {
   typeResultCard.classList.add(`type-${typeKey.toLowerCase()}`);
   typeBadge.textContent = `${type.badge}：${type.name}`;
   typeSummary.textContent = type.summary;
+  typeIllustration.src = type.image;
+  typeIllustration.alt = type.imageAlt;
   typeTitle.textContent = type.name;
   typeState.textContent = type.state;
   typeSelfCare.textContent = type.selfCare;
