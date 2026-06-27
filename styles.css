@@ -416,6 +416,13 @@ h2 {
   margin-bottom: 16px;
 }
 
+.score-guide {
+  margin: -4px 0 16px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 .score-list {
   display: grid;
   gap: 16px;

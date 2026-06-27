@@ -26,9 +26,9 @@ const categories = [
       "ゆっくりすることに罪悪感を感じる",
     ],
     levels: [
-      { max: 15, label: "ボーダー以下", text: "緊張モードは比較的落ち着いています。" },
-      { max: 25, label: "やや高め", text: "がんばりモードが続きやすい状態です。" },
-      { max: 40, label: "高め", text: "身体が常に緊張しやすい状態です。" },
+      { min: 25, label: "良好", text: "緊張モードは比較的落ち着いています。" },
+      { min: 15, label: "やや低め", text: "がんばりモードが続きやすい状態です。" },
+      { min: 0, label: "低め", text: "身体が常に緊張しやすい状態です。" },
     ],
   },
   {
@@ -50,9 +50,9 @@ const categories = [
       "少し休んだだけでは怠さが抜けず、長くぼーっとしてしまう",
     ],
     levels: [
-      { max: 15, label: "ボーダー以下", text: "休息モードへの傾きは強すぎない状態です。" },
-      { max: 25, label: "やや高め", text: "ぼんやり感・だるさが出やすい状態です。" },
-      { max: 40, label: "高め", text: "休息モードに傾き、活動しにくい状態が続きやすいです。" },
+      { min: 25, label: "良好", text: "休息モードへの傾きは強すぎない状態です。" },
+      { min: 15, label: "やや低め", text: "ぼんやり感・だるさが出やすい状態です。" },
+      { min: 0, label: "低め", text: "休息モードに傾き、活動しにくい状態が続きやすいです。" },
     ],
   },
 ];
@@ -174,7 +174,7 @@ function getCategory(categoryId) {
 }
 
 function getLevel(category, score) {
-  return category.levels.find((level) => score <= level.max);
+  return category.levels.find((level) => score >= level.min);
 }
 
 function scrollToQuestionStart() {
@@ -232,19 +232,20 @@ function selectAnswer(score) {
 
 function calculateScores() {
   return categories.reduce((scores, category) => {
-    scores[category.id] = questions.reduce((total, question, index) => {
+    const symptomScore = questions.reduce((total, question, index) => {
       if (question.categoryId !== category.id) {
         return total;
       }
       return total + (answers[index] ?? 0);
     }, 0);
+    scores[category.id] = 40 - symptomScore;
     return scores;
   }, {});
 }
 
 function judgeType(scores) {
-  const sympatheticHigh = scores.sympathetic >= 16;
-  const parasympatheticHigh = scores.parasympathetic >= 16;
+  const sympatheticHigh = scores.sympathetic <= 24;
+  const parasympatheticHigh = scores.parasympathetic <= 24;
 
   if (!sympatheticHigh && !parasympatheticHigh) return "A";
   if (sympatheticHigh && !parasympatheticHigh) return "B";
