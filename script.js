@@ -202,7 +202,6 @@ function renderQuestion({ resetScroll = false } = {}) {
       button.classList.add("selected");
     }
     button.innerHTML = `
-      <span class="answer-score">${option.score}</span>
       <span class="answer-label">${option.label}</span>
     `;
     button.addEventListener("click", () => selectAnswer(option.score));

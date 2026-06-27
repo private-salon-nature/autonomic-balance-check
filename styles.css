@@ -316,10 +316,8 @@ h2 {
   background: #ffffff;
   cursor: pointer;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 8px;
   padding: 14px 10px;
   transition:
     transform 160ms ease,
@@ -350,20 +348,6 @@ h2 {
   color: var(--leaf-dark);
   border-color: #8dbf3f;
   background: var(--leaf-soft);
-}
-
-.answer-score {
-  width: 38px;
-  height: 38px;
-  border-radius: 999px;
-  background: rgba(38, 50, 56, 0.08);
-  display: grid;
-  place-items: center;
-  font-weight: 900;
-}
-
-.answer-button.selected .answer-score {
-  background: rgba(47, 95, 41, 0.12);
 }
 
 .answer-label {
@@ -403,6 +387,50 @@ h2 {
   color: var(--leaf-dark);
   background: linear-gradient(135deg, #d8ef9d, #a9cf4d);
   box-shadow: 0 10px 26px rgba(127, 178, 59, 0.28);
+}
+
+.start-button,
+.line-button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.start-button::after,
+.line-button::after {
+  content: "";
+  position: absolute;
+  inset: -45% auto -45% -65%;
+  width: 42%;
+  transform: skewX(-24deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.72),
+    transparent
+  );
+  animation: button-shine 3.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes button-shine {
+  0%,
+  58% {
+    left: -65%;
+  }
+
+  78%,
+  100% {
+    left: 125%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .start-button::after,
+  .line-button::after {
+    animation: none;
+    display: none;
+  }
 }
 
 .score-card,
